@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "description": "Test",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "sass src/scss:dist/css",
-    "start": "sass --watch src/scss:dist/css & live-server"
+    "start": "sass --watch src/scss:dist/css & live-server",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "keywords": [],
   "author": "Noroff",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "8.44",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "live-server": "^1.2.2",
+    "prettier": "^3.3.3",
     "sass": "^1.54.8"
   },
   "dependencies": {
