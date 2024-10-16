@@ -35,3 +35,5 @@ jobs:
       #   run: npm run build
       - name: Run lint
         run: npm run lint
+      - name: Run prettier
+        run: npx prettier --check .
