@@ -10,7 +10,8 @@
     "start": "sass --watch src/scss:dist/css & live-server",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md,cjs}\""
+    "format": "prettier --write \"**/*.{js,jsx,json,md,cjs}\"",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Noroff",
@@ -29,7 +30,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "live-server": "^1.2.2",
     "prettier": "^3.3.3",
-    "sass": "^1.54.8"
+    "sass": "^1.54.8",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "bootstrap-dark-5": "^1.1.3"
