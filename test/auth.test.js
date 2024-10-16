@@ -1,8 +1,7 @@
 // test/auth.test.js
 import { jest, describe, beforeEach, test, expect } from '@jest/globals';
 import { login, logout } from '../src/js/api/auth/index.js';
-import { save, load, remove } from '../src/js/storage/index.js';
-
+import { save, remove } from '../src/js/storage/index.js';
 
 // Mock fetch
 global.fetch = jest.fn(() =>
@@ -29,7 +28,7 @@ describe('Authentication', () => {
   test('login function stores a token when provided with valid credentials', async () => {
     const validCredentials = { email: 'test@example.com', password: 'password123' };
     const profile = await login(validCredentials.email, validCredentials.password);
-    
+
     expect(global.fetch).toHaveBeenCalledWith(
       expect.stringContaining('/social/auth/login'),
       expect.objectContaining({
