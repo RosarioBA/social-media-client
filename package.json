@@ -10,7 +10,7 @@
     "start": "sass --watch src/scss:dist/css & live-server",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,json,md,cjs}\""
   },
   "keywords": [],
   "author": "Noroff",

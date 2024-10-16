@@ -2,7 +2,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   transform: {
-    "^.+\\.js$": ["babel-jest", { configFile: './.babelrc.json' }]
+    '^.+\\.js$': ['babel-jest', { configFile: './.babelrc.json' }],
   },
   moduleFileExtensions: ['js', 'json', 'jsx', 'node'],
   transformIgnorePatterns: [],
