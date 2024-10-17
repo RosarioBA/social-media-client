@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npm run test-e2e",
-    "test-e2e": "cypress open",
+    "test-e2e": "cypress run",
     "test-unit": "node node_modules/jest/bin/jest.js",
     "build": "sass src/scss:dist/css",
     "start": "sass --watch src/scss:dist/css & live-server",
