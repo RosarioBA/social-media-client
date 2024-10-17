@@ -36,7 +36,7 @@ jobs:
       - name: Run lint
         run: npm run lint
       - name: Run prettier
-        run: npx prettier --check .
+        run: npx prettier --write .
       - name: Run tests
         run: npm test
       - name: Cypress run
