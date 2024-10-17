@@ -4,10 +4,20 @@ describe('Authentication', () => {
   });
 
   it('User can log in with the login form using valid credentials', () => {
+    // Open the login modal
     cy.get('button[data-auth="login"]').first().click();
+
+    // Ensure modal is visible
     cy.get('#loginModal').should('be.visible');
-    cy.get('#loginEmail').type('validuser@noroff.no');
-    cy.get('#loginPassword').type('validPassword123');
+
+    // Wait for any animations to complete
+    cy.wait(300);
+
+    // Fill in the login form
+    cy.get('#loginEmail').should('be.visible').type('validuser@noroff.no', { force: true });
+    cy.get('#loginPassword').should('be.visible').type('validPassword123', { force: true });
+
+    // Submit the form
     cy.get('#loginForm').submit();
 
     // Check if the logout button is visible (indicating successful login)
@@ -15,10 +25,20 @@ describe('Authentication', () => {
   });
 
   it('User cannot submit the login form with invalid credentials', () => {
+    // Open the login modal
     cy.get('button[data-auth="login"]').first().click();
+
+    // Ensure modal is visible
     cy.get('#loginModal').should('be.visible');
-    cy.get('#loginEmail').type('invaliduser@example.com');
-    cy.get('#loginPassword').type('invalidPassword');
+
+    // Wait for any animations to complete
+    cy.wait(300);
+
+    // Fill in the login form with invalid credentials
+    cy.get('#loginEmail').should('be.visible').type('invaliduser@example.com', { force: true });
+    cy.get('#loginPassword').should('be.visible').type('invalidPassword', { force: true });
+
+    // Submit the form
     cy.get('#loginForm').submit();
 
     // The login modal should still be visible after failed login
@@ -32,8 +52,9 @@ describe('Authentication', () => {
     // First, log in
     cy.get('button[data-auth="login"]').first().click();
     cy.get('#loginModal').should('be.visible');
-    cy.get('#loginEmail').type('validuser@noroff.no');
-    cy.get('#loginPassword').type('validPassword123');
+    cy.wait(300);
+    cy.get('#loginEmail').should('be.visible').type('validuser@noroff.no', { force: true });
+    cy.get('#loginPassword').should('be.visible').type('validPassword123', { force: true });
     cy.get('#loginForm').submit();
 
     // Verify login was successful
