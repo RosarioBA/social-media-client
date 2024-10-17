@@ -150,7 +150,7 @@ context('Network Requests', () => {
         body: { error: message },
         headers: { 'access-control-allow-origin': '*' },
         delayMs: 500,
-      }
+      },
     ).as('putComment');
 
     // we have code that puts a comment when

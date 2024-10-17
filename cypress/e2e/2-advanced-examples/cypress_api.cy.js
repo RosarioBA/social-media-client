@@ -28,7 +28,7 @@ context('Cypress APIs', () => {
           // we don't want to change the subject so
           // we return whatever was passed in
           return subject;
-        }
+        },
       );
 
       cy.get('button')

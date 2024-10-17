@@ -183,19 +183,19 @@ context('Spies, Stubs, and Clock', () => {
     // you can combine several matchers using "and", "or"
     expect(spy).to.be.calledWith(
       Cypress.sinon.match.number,
-      Cypress.sinon.match(isGreaterThan(2), '> 2').and(Cypress.sinon.match(isLessThan(4), '< 4'))
+      Cypress.sinon.match(isGreaterThan(2), '> 2').and(Cypress.sinon.match(isLessThan(4), '< 4')),
     );
 
     expect(spy).to.be.calledWith(
       Cypress.sinon.match.number,
-      Cypress.sinon.match(isGreaterThan(200), '> 200').or(Cypress.sinon.match(3))
+      Cypress.sinon.match(isGreaterThan(200), '> 200').or(Cypress.sinon.match(3)),
     );
 
     // matchers can be used from BDD assertions
     cy.get('@add').should(
       'have.been.calledWith',
       Cypress.sinon.match.number,
-      Cypress.sinon.match(3)
+      Cypress.sinon.match(3),
     );
 
     // you can alias matchers for shorter test code
