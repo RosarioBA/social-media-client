@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "npm run test-unit && npm run test-e2e",
-    "test-e2e": "cypress run",
+    "test-e2e": "start-server-and-test start:ci http://localhost:5500 'cypress run'",
     "test-unit": "node node_modules/jest/bin/jest.js",
     "build": "sass src/scss:dist/css",
     "start": "sass --watch src/scss:dist/css & live-server",
+    "start:ci": "sass src/scss:dist/css && live-server --port=5500 --no-browser",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md,cjs}\"",
@@ -36,7 +37,8 @@
     "lint-staged": "^15.2.10",
     "live-server": "^1.2.2",
     "prettier": "^3.3.3",
-    "sass": "^1.54.8"
+    "sass": "^1.54.8",
+    "start-server-and-test": "^1.15.4"
   },
   "dependencies": {
     "bootstrap-dark-5": "^1.1.3"
