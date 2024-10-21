@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test1": "node node_modules/jest/bin/jest.js",
-    "test2": "npm run test-unit && npm run test-e2e",
+    "test": "npm run test-unit && npm run test-e2e",
     "test-e2e": "start-server-and-test start:ci http://localhost:5500 'cypress run'",
     "test-unit": "jest",
     "build": "sass src/scss:dist/css",
