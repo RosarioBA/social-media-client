@@ -10,7 +10,7 @@ describe('Authentication', () => {
         });
       });
     cy.get('.modal').should('not.be.visible');
-    cy.wait(1000); // Wait for modals to fully close
+    cy.wait(500); // Reduced from 1000ms to 500ms
   });
 
   const getLoginButton = () => {
@@ -19,22 +19,21 @@ describe('Authentication', () => {
 
   const openLoginModal = () => {
     getLoginButton().click({ force: true });
-    cy.wait(1000); // Wait for 1 second after clicking
+    cy.wait(500); // Reduced from 1000ms to 500ms
     cy.get('#loginModal #loginForm', { timeout: 10000 }).should('be.visible');
   };
 
   it('User can log in with the login form using valid credentials', () => {
     openLoginModal();
-    cy.wait(1000); // Wait for modal to fully open
+    cy.wait(500); // Reduced from 1000ms to 500ms
     cy.get('#loginForm')
       .should('be.visible')
       .within(($form) => {
-        cy.get('input[name="email"]').type('rosario1999@stud.noroff.no', { delay: 100 });
-        cy.get('input[name="password"]').type('rosario1999', { delay: 100 });
-        cy.wait(1000); // Wait before submitting
+        cy.get('input[name="email"]').type('rosario1999@stud.noroff.no');
+        cy.get('input[name="password"]').type('rosario1999');
         cy.wrap($form).submit();
       });
-    cy.wait(5000); // Wait for login to complete
+    cy.wait(2000); // Reduced from 5000ms to 2000ms - keep some wait time for login
     cy.get('button[data-auth="logout"]', { timeout: 10000 }).should('be.visible');
   });
 
