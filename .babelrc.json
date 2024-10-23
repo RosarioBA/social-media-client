@@ -1,0 +1,4 @@
+// babel.config.cjs
+{
+  "presets": ["@babel/preset-env"]
+}
