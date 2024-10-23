@@ -8,7 +8,7 @@ global.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
     json: () => Promise.resolve({ accessToken: 'fake-token', name: 'Test User' }),
-  })
+  }),
 );
 
 // Mock storage functions
@@ -34,7 +34,7 @@ describe('Authentication', () => {
       expect.objectContaining({
         method: 'post',
         body: JSON.stringify(validCredentials),
-      })
+      }),
     );
     expect(save).toHaveBeenCalledWith('token', 'fake-token');
     expect(save).toHaveBeenCalledWith('profile', { name: 'Test User' });
